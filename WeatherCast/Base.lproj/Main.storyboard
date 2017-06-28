@@ -77,6 +77,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.13725490196078433" green="0.22352941176470587" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="Fbn-Gl-yvu"/>
                                     <constraint firstItem="cK0-Kb-aiS" firstAttribute="top" secondItem="XFO-Ld-9Xd" secondAttribute="top" constant="10" id="LOc-Bn-YjL"/>
@@ -153,6 +154,7 @@
                                                 <constraint firstItem="Xac-3P-6yF" firstAttribute="leading" secondItem="dcj-tH-JjN" secondAttribute="leadingMargin" constant="10" id="phN-oj-Z1Y"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.16078431372549018" green="0.1803921568627451" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
