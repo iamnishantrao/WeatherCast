@@ -18,6 +18,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var todaysMaxTemp: UILabel!
     @IBOutlet weak var forecastTableView: UITableView!
     
+    var currentWeather: CurrentWeather!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //setting delegate and datasource for table view
         forecastTableView.delegate = self
         forecastTableView.dataSource = self
+        
+        currentWeather = CurrentWeather()
+        
+        currentWeather.downloadWeatherData {
+            //load downloaded data in UI
+            self.updateMainUI()
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,6 +47,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let forecastCell = forecastTableView.dequeueReusableCell(withIdentifier: "forecastTableCell", for: indexPath)
         
         return forecastCell
+    }
+    
+    func updateMainUI() {
+        currentLocation.text = currentWeather.cityName
+        currentWeatherCondition.text = currentWeather.weatherType
+        currentTemp.text = "\(currentWeather.currentTemp)"
     }
 
 }
