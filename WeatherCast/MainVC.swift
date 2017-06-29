@@ -52,7 +52,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func updateMainUI() {
         currentLocation.text = currentWeather.cityName
         currentWeatherCondition.text = currentWeather.weatherType
-        currentTemp.text = "\(currentWeather.currentTemp)"
+        currentTemp.text = "\(currentWeather.currentTemp)°"
+        currentWeatherImage.image = UIImage(named: currentWeather.weatherType)
     }
 
 }

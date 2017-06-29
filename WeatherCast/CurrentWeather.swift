@@ -70,14 +70,12 @@ class CurrentWeather {
                 //set city name
                 if let name = dictionary["name"] as? String {
                     self._cityName = name
-                    print(self._cityName)
                 }
                 
                 //weather is an array of type Dictionary
                 if let weather = dictionary["weather"] as? [Dictionary<String, AnyObject>] {
                     if let main = weather[0]["main"] as? String {
                         self._weatherType = main
-                        print(self._weatherType)
                     }
                 }
                 
@@ -85,8 +83,7 @@ class CurrentWeather {
                     if let temp = main["temp"] as? Double {
                         
                         let tempInCelcius = temp - 273.15
-                        self._currentTemp = tempInCelcius
-                        print(self._currentTemp)
+                        self._currentTemp = tempInCelcius                        
                     }
                 }
                 
