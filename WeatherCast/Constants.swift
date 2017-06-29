@@ -10,13 +10,22 @@ import Foundation
 
 //file to hold url details to fetch weather data
 
+
+//for current weather data
 let BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
+let FORECAST_URL = "https://api.openweathermap.org/data/2.5/forecast/daily?"
 let LATITUDE = "lat="
 let LONGITUDE = "&lon="
+let COUNT = "&cnt="
 let APP_ID = "&appid="
 let APP_KEY = "a18c870da3516006c9ad0dea20843b43"
+//for forecast weather data
+
+
 
 //to make sure to stop downloading, when data is downloaded completed
 typealias DownloadComplete = () -> ()
 
 let CURRENT_WEATHER_URL = "\(BASE_URL)\(LATITUDE)28.4595\(LONGITUDE)77.0266\(APP_ID)\(APP_KEY)"
+
+let FORECAST_WEATHER_URL = "\(FORECAST_URL)\(LATITUDE)28.4595\(LONGITUDE)77.0266\(COUNT)6\(APP_ID)\(APP_KEY)"

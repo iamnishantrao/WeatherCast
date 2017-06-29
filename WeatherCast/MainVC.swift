@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,6 +20,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var forecastTableView: UITableView!
     
     var currentWeather: CurrentWeather!
+    var forecastData = [ForecastWeather]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +33,34 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         currentWeather = CurrentWeather()
         
         currentWeather.downloadWeatherData {
-            //load downloaded data in UI
-            self.updateMainUI()
+            self.downloadForecastData {
+                //load downloaded data in UI
+                self.updateMainUI()
+            }
         }
     }
+    
+    //Downloading forecast weather data for TableView
+    func downloadForecastData(completed: @escaping DownloadComplete) {
+        
+        Alamofire.request(FORECAST_URL).responseJSON { response in
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                    
+                    for obj in list {
+                        let forecast = ForecastWeather(weatherDictionary: obj)
+                        self.forecastData.append(forecast)
+                        print(obj)
+                    }
+                }
+            }
+            completed()
+        }
+    }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -53,6 +80,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         currentLocation.text = currentWeather.cityName
         currentWeatherCondition.text = currentWeather.weatherType
         currentTemp.text = "\(currentWeather.currentTemp)°"
+        todaysMinTemp.text = "\(currentWeather.minTemp)°"
+        todaysMaxTemp.text = "\(currentWeather.maxTemp)°"
         currentWeatherImage.image = UIImage(named: currentWeather.weatherType)
     }
 

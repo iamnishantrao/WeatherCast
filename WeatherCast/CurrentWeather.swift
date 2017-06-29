@@ -15,6 +15,8 @@ class CurrentWeather {
     var _cityName: String!
     var _weatherType: String!
     var _currentTemp: Double!
+    var _minTemp: Double!
+    var _maxTemp: Double!
     
     //TODO: code to handle current date
     //var _date: String!
@@ -39,6 +41,20 @@ class CurrentWeather {
             _currentTemp = 0.0
         }
         return _currentTemp
+    }
+    
+    var minTemp: Double {
+        if _minTemp == nil {
+            _minTemp = 0.0
+        }
+        return _minTemp
+    }
+    
+    var maxTemp: Double {
+        if _maxTemp == nil {
+            _maxTemp = 0.0
+        }
+        return _maxTemp
     }
     
 //    var date: String {
@@ -85,6 +101,17 @@ class CurrentWeather {
                         let tempInCelcius = temp - 273.15
                         self._currentTemp = tempInCelcius                        
                     }
+                    
+                    if let temp_min = main["temp_min"] as? Double {
+                        let tempInCelcius = temp_min - 273.15
+                        self._minTemp = tempInCelcius
+                    }
+                    
+                    if let temp_max = main["temp_max"] as? Double {
+                        let tempInCelcius = temp_max - 273.15
+                        self._maxTemp = tempInCelcius
+                    }
+
                 }
                 
             }
