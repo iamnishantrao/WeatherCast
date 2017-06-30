@@ -18,7 +18,7 @@ let LATITUDE = "lat="
 let LONGITUDE = "&lon="
 let COUNT = "&cnt="
 let APP_ID = "&appid="
-let APP_KEY = "a18c870da3516006c9ad0dea20843b43"
+let APP_KEY = "ENTER-YOUR-APP-KEY-HERE"
 //for forecast weather data
 
 
