@@ -3,8 +3,7 @@
 A simple application to get weather forecast for the users location build using Swift 3.<br><br>
 
 ## Screenshots: <br><br>
-![screen shot](https://user-images.githubusercontent.com/20210939/27737016-30188716-5dc4-11e7-9310-4d68d6e71969.png)
-![alt_text](https://user-images.githubusercontent.com/20210939/27737016-30188716-5dc4-11e7-9310-4d68d6e71969.png)
+
 
 ## Credits and Inspirations
 1. Weather Type Icon made by Freepik from www.flaticon.com
