@@ -73,9 +73,10 @@ class CurrentWeather {
     
     //download data from url
     func downloadWeatherData(completed: @escaping DownloadComplete) {
+        let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
         
         //request Alamofire to response in JSON, i.e to provide data in JSON format
-        Alamofire.request(CURRENT_WEATHER_URL).responseJSON { response in
+        Alamofire.request(currentWeatherURL).responseJSON { response in
             
             //the JSON data is downloaded in "response"
             let result = response.result
@@ -99,17 +100,17 @@ class CurrentWeather {
                     if let temp = main["temp"] as? Double {
                         
                         let tempInCelcius = temp - 273.15
-                        self._currentTemp = tempInCelcius                        
+                        self._currentTemp = tempInCelcius.roundTo(places: 2)
                     }
                     
                     if let temp_min = main["temp_min"] as? Double {
                         let tempInCelcius = temp_min - 273.15
-                        self._minTemp = tempInCelcius
+                        self._minTemp = tempInCelcius.roundTo(places: 2)
                     }
                     
                     if let temp_max = main["temp_max"] as? Double {
                         let tempInCelcius = temp_max - 273.15
-                        self._maxTemp = tempInCelcius
+                        self._maxTemp = tempInCelcius.roundTo(places: 2)
                     }
 
                 }
@@ -117,6 +118,15 @@ class CurrentWeather {
             }
             completed()
         }
+    }
+}
+
+//to round temperature to two decimal places
+extension Double {
+
+    func roundTo(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }
 

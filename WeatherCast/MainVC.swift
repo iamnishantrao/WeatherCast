@@ -42,8 +42,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Downloading forecast weather data for TableView
     func downloadForecastData(completed: @escaping DownloadComplete) {
+        let forecastWeatherURL = URL(string: FORECAST_WEATHER_URL)!
         
-        Alamofire.request(FORECAST_URL).responseJSON { response in
+        Alamofire.request(forecastWeatherURL).responseJSON { response in
             let result = response.result
             
             if let dict = result.value as? Dictionary<String, AnyObject> {
@@ -53,8 +54,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     for obj in list {
                         let forecast = ForecastWeather(weatherDictionary: obj)
                         self.forecastData.append(forecast)
-                        print(obj)
                     }
+                    self.forecastData.remove(at: 0)
+                    self.forecastTableView.reloadData()
                 }
             }
             completed()
@@ -67,13 +69,19 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return forecastData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let forecastCell = forecastTableView.dequeueReusableCell(withIdentifier: "forecastTableCell", for: indexPath)
-        
-        return forecastCell
+        if let forecastCell = forecastTableView.dequeueReusableCell(withIdentifier: "forecastTableCell", for: indexPath) as? WeatherCell {
+            
+            let forecast = forecastData[indexPath.row]
+            forecastCell.configureCell(forecastWeather: forecast)
+            return forecastCell
+            
+        } else {
+            return WeatherCell()
+        }
     }
     
     func updateMainUI() {

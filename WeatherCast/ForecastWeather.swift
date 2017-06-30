@@ -50,12 +50,12 @@ class ForecastWeather {
             
             if let min = temp["min"] as? Double {
                 let tempInCelcius = min - 273.15
-                self._minTemp = tempInCelcius
+                self._minTemp = tempInCelcius.roundTo(places: 2)
             }
             
             if let max = temp["max"] as? Double {
                 let tempInCelcius = max - 273.15
-                self._maxTemp = tempInCelcius
+                self._maxTemp = tempInCelcius.roundTo(places: 2)
             }
             
         }
