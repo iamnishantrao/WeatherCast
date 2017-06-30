@@ -18,6 +18,7 @@
 		1981386F1F0223A70044818B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1981386D1F0223A70044818B /* LaunchScreen.storyboard */; };
 		1981387A1F0223A70044818B /* WeatherCastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198138791F0223A70044818B /* WeatherCastTests.swift */; };
 		198138851F0223A70044818B /* WeatherCastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198138841F0223A70044818B /* WeatherCastUITests.swift */; };
+		19D10F231F06258900F757A1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D10F221F06258900F757A1 /* Location.swift */; };
 		97DF315D5EC49568E6D9D02A /* Pods_WeatherCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8F65B28D77680134466DB6 /* Pods_WeatherCast.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		198138801F0223A70044818B /* WeatherCastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherCastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		198138841F0223A70044818B /* WeatherCastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCastUITests.swift; sourceTree = "<group>"; };
 		198138861F0223A70044818B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19D10F221F06258900F757A1 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A9D6F60946B9EF155233F505 /* Pods-WeatherCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherCast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherCast/Pods-WeatherCast.debug.xcconfig"; sourceTree = "<group>"; };
 		DA783A04BFCC9E92C79B3F53 /* Pods-WeatherCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherCast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherCast/Pods-WeatherCast.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +120,7 @@
 				196F5A7F1F03F575006E4618 /* CurrentWeather.swift */,
 				191E011D1F054B340003251B /* ForecastWeather.swift */,
 				1972AA4A1F0616DF00925E9A /* WeatherCell.swift */,
+				19D10F221F06258900F757A1 /* Location.swift */,
 				198138681F0223A70044818B /* Main.storyboard */,
 				1981386B1F0223A70044818B /* Assets.xcassets */,
 				1981386D1F0223A70044818B /* LaunchScreen.storyboard */,
@@ -355,6 +358,7 @@
 				198138651F0223A70044818B /* AppDelegate.swift in Sources */,
 				196F5A801F03F575006E4618 /* CurrentWeather.swift in Sources */,
 				196F5A7E1F03F562006E4618 /* Constants.swift in Sources */,
+				19D10F231F06258900F757A1 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
